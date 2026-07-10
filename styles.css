@@ -773,7 +773,7 @@ h3 {
 }
 
 .page-hero {
-  padding: clamp(58px, 8vw, 104px) clamp(18px, 4vw, 56px);
+  padding: clamp(38px, 6vw, 72px) clamp(18px, 4vw, 56px);
   background:
     linear-gradient(120deg, rgba(15, 143, 138, 0.12), transparent 46%),
     linear-gradient(180deg, #ffffff 0%, #f4f7ee 100%);
@@ -781,6 +781,8 @@ h3 {
 
 .page-hero h1 {
   max-width: 980px;
+  font-size: clamp(34px, 4.4vw, 58px);
+  line-height: 1.04;
 }
 
 .page-hero p:not(.eyebrow) {
@@ -788,6 +790,10 @@ h3 {
   margin: 20px 0 0;
   color: var(--muted);
   font-size: 18px;
+}
+
+.section.faq-list {
+  padding-top: clamp(34px, 5vw, 56px);
 }
 
 .two-column-page,
@@ -826,6 +832,36 @@ h3 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
+}
+
+.spec-list {
+  display: grid;
+  gap: 8px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+}
+
+.spec-list li {
+  padding: 9px 10px;
+  background: #f7fbfa;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.info-band {
+  background: var(--white);
+}
+
+.content-card strong {
+  color: var(--ink);
 }
 
 .legal-content {
@@ -908,6 +944,7 @@ h3 {
   .metric-strip,
   .product-grid,
   .why-grid,
+  .mini-grid,
   .timeline,
   .capability-grid,
   .inquiry-form,
