@@ -242,7 +242,7 @@ const translations = {
 };
 
 const state = {
-  lang: "en",
+  lang: localStorage.getItem("siteLang") || "en",
   selectedProducts: []
 };
 
@@ -272,6 +272,8 @@ const syncInquiry = () => {
 
 const updateLanguage = (lang) => {
   state.lang = lang;
+  localStorage.setItem("siteLang", lang);
+  document.body.dataset.lang = lang;
   document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
 
   const langButton = document.querySelector("[data-lang-toggle]");
@@ -324,7 +326,51 @@ document.querySelectorAll("[data-add-product]").forEach((button) => {
   });
 });
 
+document.querySelectorAll("[data-rfq-form]").forEach((form) => {
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const status = form.querySelector("[data-form-status]");
+    const endpoint = form.dataset.endpoint;
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+    payload.submitted_at = new Date().toISOString();
+    payload.source_page = window.location.pathname;
+
+    if (!endpoint || endpoint === "REPLACE_WITH_BACKEND_ENDPOINT") {
+      if (status) {
+        status.textContent = state.lang === "zh"
+          ? "询盘后台接口还未配置。请先通过 WhatsApp 或邮箱发送，后续接入后端后可自动提交。"
+          : "The inquiry backend is not configured yet. Please use WhatsApp or email for now; this form is ready for a backend endpoint.";
+      }
+      return;
+    }
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) throw new Error("Submit failed");
+      form.reset();
+      if (status) {
+        status.textContent = state.lang === "zh"
+          ? "询盘已提交，我们会尽快联系你。"
+          : "Your inquiry has been submitted. We will contact you soon.";
+      }
+    } catch (error) {
+      if (status) {
+        status.textContent = state.lang === "zh"
+          ? "提交失败，请通过 WhatsApp 或邮箱联系我们。"
+          : "Submission failed. Please contact us by WhatsApp or email.";
+      }
+    }
+  });
+});
+
 const year = document.querySelector("[data-year]");
 if (year) year.textContent = new Date().getFullYear();
 
-updateLanguage("en");
+updateLanguage(state.lang);

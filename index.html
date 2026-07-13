@@ -281,7 +281,7 @@
           </div>
         </div>
 
-        <form class="inquiry-form" action="mailto:hongjianzhu14@gmail.com" method="post" enctype="text/plain">
+        <form class="inquiry-form" data-rfq-form data-endpoint="REPLACE_WITH_BACKEND_ENDPOINT">
           <label><span data-i18n="formName">Name</span><input name="name" autocomplete="name" required /></label>
           <label><span data-i18n="formCompany">Company</span><input name="company" autocomplete="organization" /></label>
           <label><span data-i18n="formCountry">Country / Market</span><input name="country" autocomplete="country-name" required /></label>
@@ -298,6 +298,7 @@
           <label><span data-i18n="formQuantity">Estimated Quantity</span><input name="quantity" data-i18n-placeholder="quantityPlaceholder" placeholder="Example: 500 pcs / mixed carton / trial order" /></label>
           <label><span data-i18n="formProducts">Interested Products</span><textarea name="products" rows="3" data-products-field data-i18n-placeholder="productsPlaceholder" placeholder="Select products above or type your product list."></textarea></label>
           <label><span data-i18n="formMessage">Message</span><textarea name="message" rows="5" data-i18n-placeholder="messagePlaceholder" placeholder="Tell us packaging, OEM/ODM, sample, shipping, or catalog needs."></textarea></label>
+          <p class="form-status" data-form-status></p>
           <button class="primary-button form-button" type="submit" data-i18n="submitInquiry">Send Inquiry</button>
         </form>
       </section>

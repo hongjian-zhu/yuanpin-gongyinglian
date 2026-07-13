@@ -29,6 +29,11 @@ body {
   line-height: 1.55;
 }
 
+body[data-lang="en"] .lang-zh,
+body[data-lang="zh"] .lang-en {
+  display: none;
+}
+
 a {
   color: inherit;
 }
@@ -880,6 +885,14 @@ h3 {
 
 .address-placeholder {
   margin-top: 24px;
+}
+
+.form-status {
+  grid-column: 1 / -1;
+  min-height: 24px;
+  margin: 0;
+  color: var(--teal-dark);
+  font-weight: 800;
 }
 
 @media (max-width: 1180px) {

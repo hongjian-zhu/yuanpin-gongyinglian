@@ -13,24 +13,24 @@
       <nav class="main-nav" aria-label="Main navigation">
         <a href="./products.html">Products</a><a href="./index.html#wholesale">Wholesale</a><a href="./index.html#oem">OEM/ODM</a><a href="./index.html#catalog">Catalog</a><a href="./about.html">Factory</a><a href="./faq.html">FAQ</a><a href="./contact.html">Contact</a>
       </nav>
-      <div class="header-actions"><a class="quote-pill" href="https://wa.me/8613958414500" target="_blank" rel="noreferrer">WhatsApp</a></div>
+      <div class="header-actions"><button class="icon-button" type="button" data-lang-toggle aria-label="Switch language">中文</button><a class="quote-pill" href="https://wa.me/8613958414500" target="_blank" rel="noreferrer">WhatsApp</a></div>
     </header>
     <main>
-      <section class="page-hero"><p class="eyebrow">Contact / 联系我们</p><h1>Send your wholesale buying request.</h1><p>请尽量说明产品、国家、数量、包装和是否需要 OEM/ODM，这样更容易快速报价。</p></section>
+      <section class="page-hero"><p class="eyebrow">Contact / 联系我们</p><h1><span class="lang-en">Send your wholesale buying request.</span><span class="lang-zh">发送你的批发采购需求。</span></h1><p><span class="lang-en">Please include product, country, quantity, packaging, and OEM/ODM needs for faster quotation.</span><span class="lang-zh">请尽量说明产品、国家、数量、包装和是否需要 OEM/ODM，这样更容易快速报价。</span></p></section>
       <section class="section contact-section">
         <div class="contact-copy">
-          <h2>Fast Contact</h2>
+          <h2><span class="lang-en">Fast Contact</span><span class="lang-zh">快速联系</span></h2>
           <div class="contact-methods">
             <a href="https://wa.me/8613958414500" target="_blank" rel="noreferrer">WhatsApp: +86 139 5841 4500</a>
             <a href="mailto:hongjianzhu14@gmail.com">Email: hongjianzhu14@gmail.com</a>
           </div>
           <p class="address-placeholder">Address: Yiwu, Zhejiang, China. Detailed English address to be added.</p>
           <div class="inquiry-summary">
-            <strong>What to include</strong>
-            <p>Product category, quantity, country, buyer type, packaging needs, sample request, and OEM/ODM requirements.</p>
+            <strong><span class="lang-en">What to include</span><span class="lang-zh">询盘建议包含</span></strong>
+            <p><span class="lang-en">Product category, quantity, country, buyer type, packaging needs, sample request, and OEM/ODM requirements.</span><span class="lang-zh">产品品类、数量、国家、买家类型、包装需求、样品需求和 OEM/ODM 要求。</span></p>
           </div>
         </div>
-        <form class="inquiry-form" action="mailto:hongjianzhu14@gmail.com" method="post" enctype="text/plain">
+        <form class="inquiry-form" data-rfq-form data-endpoint="REPLACE_WITH_BACKEND_ENDPOINT">
           <label><span>Name</span><input name="name" autocomplete="name" required /></label>
           <label><span>Company</span><input name="company" autocomplete="organization" /></label>
           <label><span>Country / Market</span><input name="country" autocomplete="country-name" required /></label>
@@ -39,6 +39,7 @@
           <label><span>Estimated Quantity</span><input name="quantity" placeholder="Example: 500 pcs / trial order / mixed carton" /></label>
           <label><span>Interested Products</span><textarea name="products" rows="3" placeholder="Treat dispensing balls, squeaky toys, cat teaser wands..."></textarea></label>
           <label><span>Message</span><textarea name="message" rows="5" placeholder="Tell us packaging, OEM/ODM, sample, shipping, or catalog needs."></textarea></label>
+          <p class="form-status" data-form-status></p>
           <button class="primary-button form-button" type="submit">Send Inquiry</button>
         </form>
       </section>
